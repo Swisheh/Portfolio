@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="../styles/cs.css">
+</head>
+
+<body>
+<div style="width: 600px;">
+<h1>2503ICT Web Programming Assignment 2 Documentation</h1>
+<h2>Updated Job Searching website</h2>
+
+<h3>Read before job searching!</h3>
+<p>Author: Rory Hiscock
+<p>Student Number: 2776863
+<p>Description: Assignment 2 - Update the Assignment 1 job searching website
+<p>The database is included in the submitted files 'assign2/sql/jobs.sql' (also included at the bottom of the page)
+
+
+<p>Directions
+<ul>
+<li>Start up <a href="http://dwarf.ict.griffith.edu.au/~s2776863/wp/assign2/index.php">Index.php</a></li>
+<li>There is a default Admin account (basically a manager without permissions) user: Admin - pass: admin</li>
+<li>There is a 2 default Manager accounts users: Manager or Manager2 - pass: manag</li>
+<li>There is a 2 default User accounts users: User or User2 - pass: user</li>
+<li>Create your own user account via the Register form</li>
+<li>Add an employerId into the ld_users2 database to ugprade the account</li>
+</ul>
+<p>All of the features that are required are there and work</p>
+<p>server-side validation is used in updating passwords</p>
+<p>A couple of friends tested the website at the end and didn't find any errors</p>
+
+<h3>Additional Comments</h3>
+<p>The javascript validation is included in the logon but seems to have compatability problems with smarty templates since it works fine in normal html.</p>
+<p>When it says managers can view a list of applications for jobs 'they' listed. I presumed it meant jobs the employers listed.</p>
+</div>
+
+<tr><td>SQL Code:</td> <td><textarea name="sql code">
+drop table if exists ld_jobs2;
+drop table if exists ld_employers2;
+drop table if exists ld_users2;
+drop table if exists ld_apps2;
+
+create table ld_jobs2 (
+    id int not null auto_increment UNIQUE,
+    employerId int not null references ld_employers2(id),
+	title varchar(80) not null,
+	startdate timestamp,
+	enddate timestamp,
+	description text default '',
+	location varchar(80) not null,
+	salary INT not null,
+    primary key (id)
+);
+
+create table ld_employers2 (
+	id int not null auto_increment UNIQUE,
+	name varchar(80) not null UNIQUE,
+	industry varchar(80) not null,
+	description text default '',
+	primary key (id)
+);
+
+create table ld_users2 (
+	employerId int not null references ld_employers2(id),
+	email varchar(80) not null UNIQUE,
+	password varchar(40) not null,
+	realname varchar(40) not null,
+	catagory varchar(40) not null,
+	phone int not null,
+	imagedata blob default "",
+	imagename varchar(80) default "",
+	imagetype varchar(80) default "",
+	details text default "",
+	primary key (email),
+	key (password)
+);
+
+create table ld_apps2 (
+	applicant varchar(40) not null references ld_users2(realname),
+	jobId int not null references ld_jobs2(id),
+	letter text default '',
+	appdate timestamp
+);
+
+insert into ld_jobs2 (employerId, title, description, location, salary)
+values
+(1,
+ "Supervisor",
+ "Full time",
+ "Springwood",
+ "29000"),
+(2,
+ "Outdoor Manager",
+ "Full time",
+ "Garden City",
+ "1"),
+(3,
+ "Register Operator",
+ "Part time position",
+ "Mount Gravatt",
+ "10000"),
+(4,
+ "Talented Individuals",
+ "Marketing team; Full time, contract",
+ "Brisbane City",
+ "30000"),
+(2,
+ "Babies R Us Manager",
+ "Full time",
+ "Garden City",
+ "1"),
+(2,
+ "Store Manager",
+ "Full time",
+ "Garden City",
+ "111111"),
+(2,
+ "Deputy Store Manager",
+ "Full time",
+ "Garden City",
+ "1"),
+(1,
+ "Sales Floor",
+ "Part time",
+ "Garden City",
+ "10000"),
+(1,
+ "Change room staff",
+ "Full time",
+ "Garden City",
+ "15000"),
+(2,
+ "Register Operator",
+ "Full time",
+ "Springwood",
+ "12000"),
+(4,
+ "Superman",
+ "Fight crime when you want!",
+ "Planet Earth",
+ "1000000");
+
+insert into ld_employers2 (name, industry, description)
+values
+("K-Mart",
+ "Retail",
+ "K-Mart franchise"),
+("Toys R Us",
+ "Retail",
+ "Toys R Us"),
+("Woolworths",
+ "Retail",
+ "Fresh food people"),
+("IBM",
+ "Info Tech",
+ "Computing");
+ 
+insert into ld_users2 (email, password, catagory, employerId, realname)
+values
+("Admin",
+"Ad4O69cwrPVg.",
+"administrator",
+"0",
+"Administrator"),
+("Manager",
+"MaqhfRMmrq85U",
+"manager",
+"2",
+"Manager"),
+("Manager2",
+"MaqhfRMmrq85U",
+"manager",
+"1",
+"Manager2"),
+("User",
+"UsYDL.aGwJlKs",
+"user",
+"0",
+"Random"),
+("User2",
+"UsYDL.aGwJlKs",
+"user",
+"0",
+"Person");</textarea></td></tr>
+
+<hr>
+Created by: Rory Hiscock <br>
+</body>
+</html>
