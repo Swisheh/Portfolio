@@ -1,0 +1,19 @@
+/*
+** Author: Rory
+** Prog name: Yellow.mash
+** Descrip: Draw a yellow circle
+*/
+
+
+import graphics;
+
+
+void main(){
+	setFrameSize(200,220);
+	setFrameVisible(true);
+}
+
+void paintWindow(){
+	setColor(255,255,0);
+	fillOval(50, 50, 100, 100);
+}

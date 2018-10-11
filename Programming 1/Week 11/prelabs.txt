@@ -1,0 +1,18 @@
+1. 
+	a) button pushed
+	b) door closed
+2. 	
+	a)
+3.
+	a) door closed
+	b) motor on
+4. 
+	c)
+5.
+	sleep(100);
+6.
+	beep();
+	playTone(200, 500);
+7.
+	start?
+	use globals

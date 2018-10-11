@@ -1,0 +1,64 @@
+/*
+** Author: Rory Hiscock
+** Prog Name: MicrowaveSafe.mash
+** Descrip: Make a NXT microwave
+*/
+
+
+import nxt;
+final int BUTTON = 1;
+final int CLOSED = 2;
+final int LAMP = B;
+final int DISH = A;
+
+void main(){
+	setUpSensor(BUTTON, TOUCH);
+	setUpSensor(CLOSED, TOUCH);
+	setUpSensor(LAMP, LIGHT_FLOOD);
+	microwave();
+}
+
+void microwave(){
+	if(isPushed(BUTTON)){
+		int timer = + 50;
+		beep();
+		sleep(100);
+		if(timer > 0){
+			light();
+			on();
+			sleep (100);
+			timer = timer - 1;
+		} else if(timer == 0){
+			dark();
+			off();
+			tune();
+		}
+	} else if(!isPushed(CLOSED)){
+		int timer = 0;
+		off();
+		dark();
+	}
+}
+
+void dark(){
+	lampOff(LAMP);
+}
+
+void light(){
+	lampOn(LAMP,100);
+}
+
+void on(){
+	motorBackward(DISH, 50);
+}
+
+void off(){
+	motorStop(DISH);
+}
+
+void tune(){
+	twoBeeps();
+	sleep(500);
+	fallingBeeps();
+	sleep(500);
+}

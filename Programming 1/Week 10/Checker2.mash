@@ -1,0 +1,59 @@
+/*
+** Author: Rory
+** Prog name: Checker2.mash
+** Descrip: Draw a checkerboard with checker
+*/
+
+
+import graphics;
+
+final int LIMIT = 400;
+final int MAX = 4;
+final int MIN = 1;
+int e = 100;
+int r = 150;
+
+void main(){
+	setFrameSize(405,430);
+	setFrameVisible(true);
+	animate(2);
+}
+
+void paintWindow(){
+	for (int x = 0; x < LIMIT; x = x+50){
+		for (int y = 0; y < LIMIT; y = y+50){
+			if ((x+y) % 100 == 0){
+				setColor(255,0,0);
+				fillRect(x,y,50,50);
+			} else {
+				setColor(0,0,0);
+				fillRect(x,y,50,50);
+			}
+		}
+	}
+	check();
+}
+
+void check(){
+	setColor(255,255,255);
+	fillOval(e,r,50,50);
+	double m = (int) (random() *MAX+MIN);
+	if (m == 1){
+		e = e+50; r = r+50;
+	} else if (m == 2){
+		e = e-50; r = r-50;
+	} else if (m == 3){
+		e = e+50; r = r-50;
+	} else if (m == 4){
+		e = e-50; r = r+50;
+	}	
+	if (e <= 0){
+		e = e + 100;
+	} else if (e >= 400){
+		e = e - 100;
+	} else if (r <=0){
+		r = r + 100;
+	} else if (r >= 400){
+		r = r - 100;
+	}
+}

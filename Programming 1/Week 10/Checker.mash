@@ -1,0 +1,29 @@
+/*
+** Author: Rory
+** Prog name: Checker.mash
+** Descrip: Draw a checkerboard
+*/
+
+
+import graphics;
+
+final int LIMIT = 400;
+
+void main(){
+	setFrameSize(405,430);
+	setFrameVisible(true);
+}
+
+void paintWindow(){
+	for (int x = 0; x < LIMIT; x = x+50){
+		for (int y = 0; y < LIMIT; y = y+50){
+			if ((x+y) % 100 == 0){
+				setColor(255,0,0);
+				fillRect(x,y,50,50);
+			} else {
+				setColor(0,0,0);
+				fillRect(x,y,50,50);
+			}
+		}
+	}
+}
