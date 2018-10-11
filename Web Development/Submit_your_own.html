@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<LINK href="site.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Submit your own</title>
+<script type="text/javascript">
+function randomFact(){
+	var rand = (Math.floor(Math.random()*4));
+	if(rand == 0){
+		document.write("Become a member today to submit your own recipes!");	
+	}else if(rand == 1){
+		document.write("It only takes a few minutes to register.");	
+	}else if(rand == 2){
+		document.write("Register now to get exclusive content.");	
+	}else if(rand == 3){
+		document.write("Want to share a recipe with the world?");	
+	}
+}
+</script>
+<style type="text/css">
+BODY {
+	text-align:center
+}
+</style>
+</head>
+
+<body>
+<div align="right">Page 4</div>
+<div>
+<a href="index.html"><img src="img/homepage.png" alt="Homepage" style="border-style: none"/></a>
+</div>
+
+<h1>Submit your Own!</h1>
+<div>
+<script type="text/javascript">
+	randomFact();
+</script>
+</div>
+<h2>Register an Account</h2>
+<li>Enter a Username</li>
+<input type="text">
+<li>Enter a Password</li>
+<input type="password">
+<li>Enter your Email</li>
+<input type="text">
+
+<h2>Existing User Submission</h2>
+<li>Username<li>
+<input type="text">
+<li>Password<li>
+<input type="password">
+<li></li>
+<li>What type of Recipe are you Submitting?</li>
+<select>
+<option>Breakfast</option>
+<option>Lunch</option>
+<option>Dinner</option>
+<option>Desert</option>
+</select> 
+<li>Upload a picture<li>
+<input type="text">
+<input type="Submit" value="Upload">
+<li>Ingredients</li>
+<textarea rows="6" cols="40"></textarea> 
+<li>Method</li>
+<textarea rows="6" cols="40"></textarea> 
+<li>Finished? <input type="Submit" value="Submit"></li>
+
+
+
+</body>
+</html>

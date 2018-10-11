@@ -1,0 +1,98 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<LINK href="site.css" rel="stylesheet" type="text/css">
+<title>Learn 2 Cook!</title>
+
+<!--DATE AND TIME-->
+<script type="text/javascript">
+function init(){
+  timeDisplay = document.createTextNode("");
+  document.getElementById("clock").appendChild ( timeDisplay );
+}
+
+function updateClock(){
+  var currentTime = new Date();
+
+  var currentHours = currentTime.getHours();
+  var currentMinutes = currentTime.getMinutes();
+  var currentSeconds = currentTime.getSeconds();
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+</script>
+
+<script type="text/javascript">
+function print_date(){
+	var date = new Date();
+	var day = date.getDay();
+	var month = date.getMonth();
+	var year = date.getFullYear();
+	document.write(day+"/"+month+"/"+year);
+}
+
+</script>
+
+<script type="text/javascript">
+function randomFact(){
+	var rand = (Math.floor(Math.random()*4));
+	if(rand == 0){
+		document.write("If you can see Chuck Norris, he can see you. If you can't see Chuck Norris you may be only seconds away from death.");	
+	}else if(rand == 1){
+		document.write("Don't even ask. Chuck Norris is always serious.");	
+	}else if(rand == 2){
+		document.write("Before Chuck Norris was born, the martial arts weapons with two pieces of wood connected by a chain were called NunBarrys. No one ever did find out what happened to Barry.");	
+	}else if(rand == 3){
+		document.write("Chuck Norris divides by zero.");	
+	}
+}
+</script>
+
+<body onload="updateClock(); setInterval('updateClock()', 1000 )">
+<div align="right">Page 1</div>
+<span id="clock">&nbsp;</span>
+<div align="left">
+<script type="text/javascript">
+	print_date();
+</script>
+</div>
+
+<div align="center">
+<a href="index.html"><img src="img/homepage.png" alt="Homepage" style="border-style: none"/></a>
+</div>
+
+<div align="center">
+<a href="Our_Recipes.html"><img src="img/Chef Hat.png" alt="Our Recipes" width="250" height="250" style="border-style: none"/></a> 
+<a href="User_Submitted.html"><img src="img/Paper.png" alt="User Submitted" width="250" height="250" style="border-style: none"/></a> 
+<a href="Submit_your_own.html"><img src="img/Envelope.png" alt="Submit your own" width="250" height="250" style="border-style: none"/></a>
+</div>
+
+<div align="center">
+<script type="text/javascript">
+	randomFact();
+</script>
+</div>
+
+<div align="center">
+Rory Hiscock (s2776863) and Michael Watt (s2684071)
+</div>
+</body>
+</html>
