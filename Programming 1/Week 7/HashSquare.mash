@@ -1,0 +1,19 @@
+/*
+** Author: Rory Hiscock
+** Program Name: HashSquare.mash
+** Description: A program that prints #'s in a square
+*/
+
+
+import console;
+
+
+print("Enter a number: ");
+int number = readInt();
+for (int loop2 = 0; loop2 < number; loop2 = loop2+1){
+	println("");
+	for (int loop = 0; loop < number; loop = loop+1 ){
+		print("#");
+	}
+}
+println("");

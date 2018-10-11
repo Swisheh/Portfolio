@@ -1,0 +1,26 @@
+/*
+** Author: Rory Hiscock
+** Program name: Die.mash
+** Description: role 100 die
+*/
+
+import console;
+
+
+final int TIMES = 100;
+final int MAX = 6;
+final int MIN = 1;
+
+
+void main(){
+	for (int loop = 0; loop < TIMES; loop = loop + 1){
+		print(dice() + (" "));
+	}
+	println();
+}
+
+int dice(){
+	double n = random() *MAX+MIN;
+	int m = (int) n;
+	return m;
+}

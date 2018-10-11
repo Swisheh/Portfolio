@@ -1,0 +1,54 @@
+/*
+** Author: Rory Hiscock
+** Program name: Backup2.mash
+** Description: make robot run into stuff or hit dark surface then reverse n try a different direction
+*/
+
+
+import nxt;
+
+
+final int MOT1 = A;
+final int MOT2 = C;
+final int TOU = 1;
+final int LIG = 2;
+
+void main(){
+	setUpSensor(TOU, TOUCH);
+	setUpSensor(LIG, LIGHT_FLOOD);
+	while(true){
+		go();
+		if (isPushed(TOU)){
+			backward();
+			sleep(getRandom());
+			turn();
+			sleep(getRandom());
+		} else if (getLight < 50) {
+			backward();
+			sleep(getRandom());
+			turn();
+			sleep(getRandom());
+		}
+	}			
+}
+
+void go(){
+	motorBackward(MOT1, 100);
+	motorBackward(MOT2, 100);
+}
+
+void backward(){
+	motorForward(MOT1, 100);
+	motorForward(MOT2, 100);
+}
+
+void turn(){
+	motorBackward(MOT1, 100);
+	motorForward(MOT2, 100);
+}
+
+int getRandom(){
+	double x = random() * 2000;
+	int l = (int) x;
+	return l;
+}

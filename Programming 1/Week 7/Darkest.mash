@@ -1,0 +1,32 @@
+/*
+** Author: Rory Hiscock
+** Program name: Darkest.mash
+** Description: Drive NXT over stripes then reverse back to the darkest
+*/
+
+
+import nxt;
+
+final int MOT1 = A;
+final int MOT2 = C;
+final int LIG = 2;
+final int TOU = 1;
+
+setUpSensor(LIG, LIGHT_FLOOD);
+setUpSensor(TOU, TOUCH);
+sleep(500);
+motorBackward(MOT1, 90);
+motorBackward(MOT2, 90);
+int darkest = 100;
+while(!isPushed(TOU)){
+	int dark = getLight(LIG);
+	if (getLight(LIG) < darkest){
+		darkest = dark;
+	}
+}
+while(getLight(LIG) > darkest){
+	motorForward(MOT1, 90);
+	motorForward(MOT2, 90);
+}
+motorStop(MOT1);
+motorStop(MOT2);

@@ -1,0 +1,30 @@
+// ToUpperCase1.mash
+import console;
+
+char toUpperCase(char c) {
+if ('a' <= c && c <= 'z') {
+return (char) (c - 'a' + 'A');
+} else {
+return c;
+}
+}
+
+String toUpperCase(String s) {
+String t = "";
+for (int i = 0; i < length(s); i = i + 1) {
+t = t + toUpperCase(charAt(s, i));
+}
+return t;
+}
+
+void main() {
+println(toUpperCase('a'));
+println(toUpperCase('b'));
+println(toUpperCase('z'));
+println(toUpperCase('A'));
+println(toUpperCase(';'));
+println(toUpperCase('9'));
+println(toUpperCase(""));
+println(toUpperCase("a"));
+println(toUpperCase("abzA;9"));
+}

@@ -1,0 +1,41 @@
+/*
+** Author: Rory Hiscock
+** Program name: Pushordark.mash
+** Description: determine which string is less then the other
+*/
+
+import nxt;
+
+final int MOT1 = A;
+final int MOT2 = C;
+final int LIG = 2;
+final int TOU = 1;
+
+void main(){
+	setUpSensor(TOU, TOUCH);
+	setUpSensor(LIG, LIGHT_FLOOD);
+	sleep(500);
+	int i = 0;
+	go();
+	while(!isPushed(TOU) && i == 0){
+		if (isPushed(TOU)){
+			stop();
+			i = i + 1;
+		}
+		int darker = getLight(LIG);
+		if (darker < 50){
+			stop();
+			i = i + 1;
+		}
+	}
+}
+
+void go (){
+	motorBackward(MOT1, 100);
+	motorBackward(MOT2, 100);
+}
+
+void stop (){
+	motorStop(MOT1);
+	motorStop(MOT2);
+}

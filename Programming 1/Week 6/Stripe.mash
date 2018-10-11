@@ -1,0 +1,19 @@
+/*
+** Author: Rory Hiscock
+** Program Name: Stripe.mash
+** Description: A program that drives NXT over 5 black stripes.
+*/
+
+
+import nxt;
+
+setUpSensor(2, LIGHT_FLOOD);
+sleep(500);
+motorBackward(A,50);
+motorBackward(C,50);
+for(int stripe = 0; stripe < 5; stripe = stripe + 1){
+	waitForDarker(2, 5);
+	waitForLighter(2,5);
+}
+motorStop(A);
+motorStop(C);

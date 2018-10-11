@@ -1,0 +1,21 @@
+
+
+import console;
+
+
+print("Enter a mark: ");
+double mark = readDouble();
+while (mark < 0) {
+	print("Enter a number higher then 0: ");
+	mark = readDouble();
+}
+double biggest = mark;
+while (mark >= 0.0) {
+	if (mark > biggest){
+		biggest = mark;
+	} else {
+	}
+	print("Enter another mark: ");
+	mark = readDouble();
+}
+println("The highest mark was: " + biggest);

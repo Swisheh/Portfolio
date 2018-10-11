@@ -1,0 +1,24 @@
+/*
+** Author: Rory Hiscock
+** Program name: Lowest.mash
+** Description: prints the lowest non-negative number
+*/
+
+import console;
+
+
+print("Enter a mark: ");
+double mark = readDouble();
+while (mark < 0) {
+	print("Enter a number higher then 0: ");
+	mark = readDouble();
+}
+double lowest = mark;
+while (mark >= 0.0) {
+	if (mark < lowest){
+		lowest = mark;
+	}
+	print("Enter another mark: ");
+	mark = readDouble();
+}
+println("The lowest mark was: " + lowest);
