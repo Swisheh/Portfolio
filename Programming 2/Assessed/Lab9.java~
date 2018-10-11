@@ -1,0 +1,11 @@
+public class Lab9{
+
+private static int[] data;
+ 
+public Lab9(int len, int val){
+ int[] temp = new int[len];
+ data = temp;
+ Random ran =
+
+}
+}

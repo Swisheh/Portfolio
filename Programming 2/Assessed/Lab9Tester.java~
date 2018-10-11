@@ -1,0 +1,10 @@
+public class Lab9Tester{
+ 
+  public static void main(String[] args) throws FileNotFoundException{
+   Lab9 labtest = new Lab9(10, 40);
+   
+   System.out.println("toString = " + labtest.tostring());
+   
+  }
+  
+}

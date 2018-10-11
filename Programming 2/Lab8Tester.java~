@@ -1,0 +1,14 @@
+
+
+
+public class Lab8Tester{
+  
+  public static void main (String[] args) throws FileNotFoundException{
+   int n = 50;
+   int d = 40.5;
+   Lab8 labTest = new Lab8(n, d); 
+   Lab8 labTest2 = new Lab8(d, n);
+  }
+  
+}
+

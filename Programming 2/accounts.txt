@@ -1,0 +1,4 @@
+1 Steven Jobs 10000
+2 Bill Gates 12000
+3 Warren Buffett 20000
+4 Donald Trump 500
