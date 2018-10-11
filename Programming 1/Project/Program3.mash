@@ -1,0 +1,49 @@
+/*
+** Author: Rory Hiscock 2776863
+** Prog name: Program3.mash
+** Descrip: Calculates the MTBF from a read in file as
+**			well as the total uptime and failures.
+*/
+
+
+import console;
+int downtime = 0;
+int uptime = 0;
+int fails = 0;
+int meanfails = 0;
+final int MAX = 10000;
+int[] letters = new int[MAX];
+int[] numbers = new int[MAX];
+
+void main(){
+	while(isNextLine()){
+		String line = readLine();
+		String o = read(line);
+	}
+	println("Total uptime = " + uptime);
+	if(fails > 0){
+		println("Number of failures = " + fails);
+	} else {
+		println("No failures.");
+	}
+	println("Mean time between failures = " + meanfails);
+}
+
+char read(char r){
+	if('D' == r){
+		fails = fails + 1;
+		return r;
+	}else if('U' == r){
+		return r;
+	}else{
+		return r;
+	}
+}
+
+String read(String r){
+	String t = "";
+	for (int i = 0; i < length(r); i = i + 1) {
+		t = t + read(charAt(r, i));
+	}
+	return t;
+}

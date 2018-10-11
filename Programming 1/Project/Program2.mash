@@ -1,0 +1,77 @@
+/*
+** Author: Rory Hiscock 2776863
+** Prog name: Program2.mash
+** Descrip: make the NXT elevator move to the top then to the
+** 			bottom while getting a rotation used to then move
+**			the elevator to floor 2,3,1,0.
+*/
+
+
+import nxt;
+// globals
+final int LIFT = C;
+final int DOOR = A;
+final int TOP = 1;
+final int BOT = 2;
+
+void main(){
+	setUpSensor(TOP, TOUCH);
+	setUpSensor(BOT, TOUCH);
+	up();
+	waitForPush(TOP);
+	resetRotation(LIFT);
+	down();
+	waitForPush(BOT);
+	int rot = getRotation(LIFT);
+	int ground = rot;						//floor calculations.
+	int floor1 = (rot / 3) * 2;
+	int floor2 = rot / 3;
+	int floor3 = 0; //top
+	drawString(""+rot,0,3);
+	drawString(""+floor1,0,4);
+	drawString(""+floor2,0,5);
+	drawString(""+floor3,0,6);						
+	while(getRotation(LIFT) != floor2){		// calibrating 
+		up();	
+	}		
+	stop();
+	door();
+	while(getRotation(LIFT) != floor3){
+		up();
+	}
+	stop();
+	door();
+	while(getRotation(LIFT) != floor1){
+		down();
+	}
+	stop();
+	door();
+	while(getRotation(LIFT) != ground){
+		down();
+	}
+	stop();
+	door();
+}
+// send elevator up
+void up(){
+	motorBackward(LIFT, 100);
+}
+// send elevator down
+void down(){
+	motorForward(LIFT, 100);
+}
+// stop elevator
+void stop(){
+	motorStop(LIFT);
+}
+
+// code to open n close door
+void door(){
+	motorBackward(DOOR,100);
+	sleep(3000);
+	motorStop(DOOR);
+	sleep(1500);
+	motorForward(DOOR,100);
+	sleep(3000);
+	motorStop(DOOR);
+}
