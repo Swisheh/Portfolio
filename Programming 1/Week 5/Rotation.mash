@@ -1,0 +1,19 @@
+/*
+** Author: Rory Hiscock
+** Program Name: Rotation.mash
+** Description: Drive NXT forward until it hits dark paper then reverses the same distance in reverse.
+*/
+
+
+import nxt;
+
+
+setUpSensor(2, LIGHT_FLOOD);
+sleep(500);
+resetRotation(A);
+motorBackward(A, 60);
+waitForDarker(2, 10);
+int rot = getRotation(A);
+motorForward(A, 60);
+waitForRotation(A, rot);
+motorStop(A);

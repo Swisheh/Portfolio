@@ -1,0 +1,18 @@
+/*
+** Author: Rory Hiscock
+** Program Name: BMI.mash
+** Description: A program that will calculate anyone's body mass
+** 		index in metric units.
+*/
+
+
+import console;
+
+
+
+print("What's your height? ");
+double h = readDouble();
+print("What's your weight? ");
+double w = readDouble();
+double bmi = (w / (h*h)) *10000;
+println("Your BMI result is: " + bmi );

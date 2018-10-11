@@ -1,0 +1,7 @@
+import nxt;
+
+setUpSensor(4, TOUCH);
+drawString("+--------------+", 0, 3);
+drawString("|  Hello, NXT. |", 0, 4);
+drawString("+--------------+", 0, 5);
+waitForPush(4);

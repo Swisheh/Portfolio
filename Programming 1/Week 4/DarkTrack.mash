@@ -1,0 +1,13 @@
+/*
+** file: DarkTrack.mash
+** author: rory hiscock
+** purpose: make the calibot drive until it hits black ink.
+*/
+
+import nxt;
+
+setUpSensor(2, LIGHT_FLOOD);
+sleep(500);
+motorBackward(A, 30);
+waitForDarker(2, 5);
+motorStop(A);

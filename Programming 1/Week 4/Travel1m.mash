@@ -1,0 +1,12 @@
+/*
+** file: Travel1m.mash
+** author: rory hiscock
+** purpose: drive a calibot forward until it goes exactly one metre.
+*/
+
+import nxt;
+
+motorBackward(A, 90);
+waitForRotation(A, 1406);
+motorStop(A);
+

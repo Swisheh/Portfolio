@@ -1,0 +1,13 @@
+/*
+** file: Push.mash
+** author: rory hiscock
+** purpose: drive a calibot forward until a touch sensor is pushed.
+*/
+
+import nxt;
+
+setUpSensor(1, TOUCH);
+motorBackward(A, 50);
+waitForPush(1);
+motorStop(A);
+

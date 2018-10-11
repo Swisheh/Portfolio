@@ -1,0 +1,12 @@
+import console;
+
+
+println("        /       ");
+println("       |        ");
+println("       /        "); 
+println("      --        ");
+println("    _/  \\_   |||");
+println("  _/ MaSH \\_  + ");
+println(" /   FTW!   \\ | ");
+println("\\\\\\\\\\\\\\///////| "); 
+

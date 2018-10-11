@@ -1,0 +1,26 @@
+/*
+** Author: Rory Hiscock
+** Program Name: Pay.mash
+** Description: To calculate someone's pay
+*/
+
+
+import console;
+
+
+double maxhour = 35;
+double overtime = 2;
+print("What is your hourly payrate? ");
+double rate = readDouble();
+print("How many hours did you work? ");
+double hours = readDouble();
+if(hours < maxhour){
+	double pay = rate * hours;
+	println("Your pay will be: " + pay );
+} else {
+	double extra = hours - maxhour;
+	double bonuspay = (extra * 2) * rate;
+	double pay = rate * maxhour;
+	double total = pay + bonuspay;
+	println("Your pay will be: $" + total );
+}

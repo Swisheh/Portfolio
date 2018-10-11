@@ -1,0 +1,22 @@
+/*
+** Author: Rory Hiscock
+** Program Name: Blink.mash
+** Description: A program that moves robot forward until it hits something while flashing its light.	
+*/
+
+
+import nxt;
+
+
+setUpSensor(1, TOUCH);
+motorBackward(A,50);
+motorBackward(C,50);
+while(!isPushed(1)){
+	lampOn(B,100);
+	sleep(100);
+	lampOff(B);
+	sleep(100);
+}
+motorStop(A);
+motorStop(C);
+	
